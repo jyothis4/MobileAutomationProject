@@ -20,40 +20,13 @@ public class HomeSteps {
         Assert.assertTrue(homePage.isHomePageDisplayed());
     }
 
-    @And("print product names")
-    public void printProductNames() {
-        homePage.printProductNames();
+    @When("user click on log in")
+    public void userClickOnLogIn() {
+        homePage.clickOnLogin();
     }
 
-    @And("user click on an element")
-    public void userClickOnAnElement() {
-        homePage.clickProduct();
+    @And("user click on continue with mail")
+    public void userClickOnContinueWithMail() {
+        homePage.clickOnContinueWithMail();
     }
-
-    @And("click on add to cart button")
-    public void clickOnAddToCartButton() throws InterruptedException {
-        homePage.addToCartButtonClick();
-
-    }
-
-    @When("user click on back button")
-    public void userClickOnBackButton() {
-        homePage.clickBack();
-    }
-
-    @When("user click on add to cart icon")
-    public void userClickOnAddToCartIcon() {
-        homePage.clickAddToCartIcon();
-    }
-
-    @And("click on burger menu icon")
-    public void clickOnBurgerMenuIcon() {
-        homePage.clickOnBurgerMenu();
-    }
-
-    @When("click on webView")
-    public void clickOnWebView() {
-        homePage.clickOnWebView();
-    }
-
 }

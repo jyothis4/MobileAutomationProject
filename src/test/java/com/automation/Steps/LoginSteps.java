@@ -1,6 +1,7 @@
 package com.automation.Steps;
 
 import com.automation.Pages.LoginPage;
+import com.automation.Utils.ConfigReader;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -12,14 +13,11 @@ public class LoginSteps {
     public void verify_user_is_on_login_page(){
         Assert.assertTrue(loginPage.isLoginPageDisplayed());
     }
-    @And("user enters username and password")
-    public void userEntersUsernameAndPassword() {
-        loginPage.displayUsername();
-        loginPage.scrollLoginPage();
-        loginPage.displayPassword();
-        loginPage.enterUsername();
-        loginPage.enterPassword();
 
+    @And("user enters email {string} and password {string}")
+    public void userEntersEmailAndPassword(String email, String password) {
+        loginPage.enterUserEmail(ConfigReader.getConfigValue(email));
+        loginPage.enterPassword(ConfigReader.getConfigValue(password));
     }
 
     @When("user click on login button")
