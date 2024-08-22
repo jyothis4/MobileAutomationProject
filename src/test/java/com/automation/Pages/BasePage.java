@@ -90,6 +90,12 @@ public class BasePage {
         int height = dimension.getHeight();
         scrollOrSwipe(width / 2, height / 2, width / 2, 0);
     }
+    public void swipe() {
+        Dimension dimension = driver.manage().window().getSize();
+        int width = dimension.getWidth();
+        int height = dimension.getHeight();
+        scrollOrSwipe(width / 2, height / 2, 0, height/2);
+    }
 
     public void scrollTillElement(WebElement element) {
         Dimension dimension = driver.manage().window().getSize();
