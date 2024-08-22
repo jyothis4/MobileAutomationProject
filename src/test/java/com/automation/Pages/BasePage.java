@@ -11,6 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import javax.lang.model.element.Element;
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.Collections;
@@ -107,7 +108,7 @@ public class BasePage {
         int elementWidth = elementDimension.getWidth();
         int height = dimension.getHeight();
         int elementHeight = elementDimension.getHeight();
-        scrollOrSwipe(elementWidth / 2, elementHeight / 2, 0, height / 2);
+        scrollOrSwipe(elementWidth / 2, elementHeight / 2, 0, elementHeight / 2);
     }
 
     public boolean isPresents(WebElement element) {
