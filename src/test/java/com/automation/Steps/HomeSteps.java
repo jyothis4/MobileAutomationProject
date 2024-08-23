@@ -22,7 +22,7 @@ public class HomeSteps {
 
     @When("user click on flight tab")
     public void user_click_on_flight_tab() {
-        homePage.clickOnSearchTab();
+        homePage.clickOnFlightTab();
     }
 
 

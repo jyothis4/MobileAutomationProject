@@ -10,8 +10,8 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//android.widget.TextView[@text='Log in']/parent::android.view.ViewGroup")
     WebElement loginButton;
 
-    @FindBy(xpath = "//android.widget.FrameLayout[@resource-id='com.comuto:id/login_email_button']")
-    WebElement continueWithMailButton;
+    @FindBy(xpath = "//android.view.View[@resource-id='PreSignInDismissIcon']/android.widget.Button")
+    WebElement closeButton;
 
     @FindBy(xpath = "//android.widget.Button[@resource-id='com.android.permissioncontroller:id/permission_deny_button']")
     WebElement doNotAcceptBtn;
@@ -19,13 +19,13 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.Button")
     WebElement getStartedBtn;
 
-    @FindBy(xpath = "//android.widget.ImageButton[@content-desc='Close']")
+    @FindBy(xpath = "//android.view.ViewGroup[@resource-id='android:id/content']/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.view.View/android.view.View/android.widget.Button")
     WebElement closeBtn;
 
     @FindBy(xpath = "//android.widget.TextView[@text='Let’s go']")
     WebElement letsGoBtn;
 
-    @FindBy(xpath = "//android.widget.TextView[@text='Flights']")
+    @FindBy(xpath = "//android.view.View[@content-desc='List of choices, 6 choices']/android.view.View/android.view.View[2]/android.widget.Button")
     WebElement flightsTab;
 
     @FindBy(xpath = "//android.widget.TextView[@resource-id='com.airbnb.android:id/search_component_1']")
@@ -36,6 +36,9 @@ public class HomePage extends BasePage {
 
 
     public void openApplication() {
+        if (isPresent(closeButton)) {
+            closeButton.click();
+        }
         if (isPresent(doNotAcceptBtn)) {
             doNotAcceptBtn.click();
         }
@@ -46,7 +49,7 @@ public class HomePage extends BasePage {
     }
 
     public boolean isHomeScreenDisplayed() {
-        return isPresent(searchTab);
+        return isPresent(flightsTab);
     }
 
     public void clickOnSearchTab() {
@@ -66,7 +69,11 @@ public class HomePage extends BasePage {
         loginButton.click();
     }
 
+
     public void clickOnContinueWithMail() {
-        continueWithMailButton.click();
+    }
+
+    public void clickOnFlightTab() {
+        flightsTab.click();
     }
 }
