@@ -2,7 +2,7 @@ Feature: Car Booking
 
   Scenario: Verify user can see the car listing
     Given user opens the application
-    Then user is on the home screen
+    Then verify user is on home screen
     When user clicks on the car tab
     Then user is on the car booking page
     When user enters "123 Main St, Chicago" into the "Pick-up location" field
