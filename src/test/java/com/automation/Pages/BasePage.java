@@ -36,6 +36,7 @@ public class BasePage {
     }
 
     public void waitForElementToBeVisible(WebElement element) {
+
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
@@ -100,13 +101,13 @@ public class BasePage {
 
 
     public void scrollTillElement(WebElement element) {
-        while(!isPresents(element)){
+        while (!isPresents(element)) {
             scroll();
         }
     }
 
     public void swipeTillElement(WebElement element) {
-        while(!isPresents(element)){
+        while (!isPresents(element)) {
             swipe();
         }
     }

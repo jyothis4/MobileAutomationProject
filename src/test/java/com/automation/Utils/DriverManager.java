@@ -14,12 +14,14 @@ public class DriverManager {
         capabilities.setCapability("platformName", ConfigReader.getConfigValue("platform.name"));
         capabilities.setCapability("deviceName", ConfigReader.getConfigValue("device.name"));
         capabilities.setCapability("automationName", ConfigReader.getConfigValue("automation.name"));
-        capabilities.setCapability("app", System.getProperty("user.dir")+"\\"+ConfigReader.getConfigValue("app.path"));
-        capabilities.setCapability("appActivity",ConfigReader.getConfigValue("app.activity"));
+        capabilities.setCapability("app", System.getProperty("user.dir") + "\\" + ConfigReader.getConfigValue("app.path"));
+        capabilities.setCapability("appActivity", ConfigReader.getConfigValue("app.activity"));
         capabilities.setCapability("appPackage", ConfigReader.getConfigValue("app.package"));
         driver = new AndroidDriver(capabilities);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
     }
 
-    public static AppiumDriver getDriver() {    return driver;    }
+    public static AppiumDriver getDriver() {
+        return driver;
+    }
 }

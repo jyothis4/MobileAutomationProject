@@ -35,7 +35,6 @@ public class HomePage extends BasePage {
     WebElement destination;
 
 
-
     public void openApplication() {
         if (isPresent(closeButton)) {
             closeButton.click();
