@@ -1,4 +1,5 @@
 Feature: Validate login functionality
+
   Scenario: verify user login
     Given user opens the application
     When user click on log in

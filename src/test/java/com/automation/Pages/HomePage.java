@@ -35,12 +35,11 @@ public class HomePage extends BasePage {
     WebElement destination;
 
 
-
     public void openApplication() {
-        if(isPresent(doNotAcceptBtn)){
+        if (isPresent(doNotAcceptBtn)) {
             doNotAcceptBtn.click();
         }
-        if(isPresent(closeBtn)){
+        if (isPresent(closeBtn)) {
             closeBtn.click();
         }
 
