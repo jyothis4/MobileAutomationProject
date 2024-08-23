@@ -1,6 +1,6 @@
 Feature: Car Booking
 
-  Scenario: Verify user can book a car successfully
+  Scenario: Verify user can see the car listing
     Given user opens the application
     Then user is on the home screen
     When user clicks on the car tab
