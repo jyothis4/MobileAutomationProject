@@ -8,25 +8,46 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 
 public class HomeSteps {
-    HomePage homePage=new HomePage();
-    @Given("user opens the application")
-    public void user_opens_the_application() {
+    HomePage homePage = new HomePage();
+
+    @Given("user opens application")
+    public void user_opens_application() {
         homePage.openApplication();
     }
 
-
-    @Then("verify user is on home page")
-    public void verifyUserIsOnHomePage() {
-        Assert.assertTrue(homePage.isHomePageDisplayed());
+    @Then("verify user is on home screen")
+    public void verify_user_is_on_home_screen() {
+        Assert.assertTrue(homePage.isHomeScreenDisplayed());
     }
 
-    @When("user click on log in")
-    public void userClickOnLogIn() {
-        homePage.clickOnLogin();
+    @When("user click on flight tab")
+    public void user_click_on_flight_tab() {
+        homePage.clickOnSearchTab();
     }
 
-    @And("user click on continue with mail")
-    public void userClickOnContinueWithMail() {
-        homePage.clickOnContinueWithMail();
+    @And("close recent apps")
+    public void closeRecentApps() {
+        Hooks.clickOnCloseAllApps();
     }
-}
+
+        @Given("user opens the application")
+        public void user_opens_the_application () {
+            homePage.openApplication();
+        }
+
+
+        @Then("verify user is on home page")
+        public void verifyUserIsOnHomePage () {
+            Assert.assertTrue(homePage.isHomePageDisplayed());
+        }
+
+        @When("user click on log in")
+        public void userClickOnLogIn () {
+            homePage.clickOnLogin();
+        }
+
+        @And("user click on continue with mail")
+        public void userClickOnContinueWithMail () {
+            homePage.clickOnContinueWithMail();
+        }
+    }

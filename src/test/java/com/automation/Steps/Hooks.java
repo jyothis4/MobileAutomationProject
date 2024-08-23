@@ -6,13 +6,15 @@ import io.cucumber.java.After;
 import io.cucumber.java.Before;
 
 public class Hooks {
+
     @Before
-    public void setUp(){
+    public void setUp() {
         ConfigReader.initConfig();
         DriverManager.createDriver();
     }
+
     @After
-    public void cleanUp(){
+    public void cleanUp() {
 //        DriverManager.getDriver().quit();
     }
 }
