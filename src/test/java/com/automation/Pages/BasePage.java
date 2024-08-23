@@ -100,15 +100,15 @@ public class BasePage {
 
 
     public void scrollTillElement(WebElement element) {
-        do{
+        while(!isPresents(element)){
             scroll();
-        } while(!isPresents(element));
+        }
     }
 
     public void swipeTillElement(WebElement element) {
-        do{
+        while(!isPresents(element)){
             swipe();
-        } while(!isPresents(element));
+        }
     }
 
     public boolean isPresents(WebElement element) {
