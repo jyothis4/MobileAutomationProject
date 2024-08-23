@@ -100,34 +100,26 @@ public class BasePage {
 
 
     public void scrollTillElement(WebElement element) {
-        Dimension dimension = driver.manage().window().getSize();
-        Dimension elementDimension = element.getSize();
-        int width = dimension.getWidth();
-        int elementWidth = elementDimension.getWidth();
-        int height = dimension.getHeight();
-        int elementHeight = elementDimension.getHeight();
-        scrollOrSwipe(elementWidth / 2, elementHeight / 2, width / 2, 0);
+        do{
+            scroll();
+        } while(!isPresents(element));
     }
 
     public void swipeTillElement(WebElement element) {
-        Dimension dimension = driver.manage().window().getSize();
-        Dimension elementDimension = element.getSize();
-        int width = dimension.getWidth();
-        int elementWidth = elementDimension.getWidth();
-        int height = dimension.getHeight();
-        int elementHeight = elementDimension.getHeight();
-        scrollOrSwipe(elementWidth / 2, elementHeight / 2, 0, elementHeight / 2);
+        do{
+            swipe();
+        } while(!isPresents(element));
     }
 
     public boolean isPresents(WebElement element) {
         try {
-            resetImplicitWait(0);
+            resetImplicitWait(10);
             wait.until(ExpectedConditions.visibilityOf(element));
             return true;
         } catch (Exception e) {
             return false;
         } finally {
-            resetImplicitWait(60);
+            resetImplicitWait(30);
         }
     }
 
