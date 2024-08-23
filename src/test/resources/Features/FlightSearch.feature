@@ -10,4 +10,4 @@ Feature: Flight Search
     And select date from "12 Aug 2024" to "23 Aug 2024"
     And click on search button
     Then verify flight listing page is displayed
-    And close recent apps
+

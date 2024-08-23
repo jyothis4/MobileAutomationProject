@@ -1,7 +1,7 @@
 package com.automation.Steps;
 
-import com.automation.Utils.ConfigReader;
 import com.automation.Pages.FlightSearchPage;
+import com.automation.Utils.ConfigReader;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;

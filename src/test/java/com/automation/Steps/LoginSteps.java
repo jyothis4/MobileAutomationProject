@@ -8,9 +8,10 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 
 public class LoginSteps {
-    LoginPage loginPage=new LoginPage();
+    LoginPage loginPage = new LoginPage();
+
     @Then("verify user is on login page")
-    public void verify_user_is_on_login_page(){
+    public void verify_user_is_on_login_page() {
         Assert.assertTrue(loginPage.isLoginPageDisplayed());
     }
 

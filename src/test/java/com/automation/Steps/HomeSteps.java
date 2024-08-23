@@ -25,29 +25,25 @@ public class HomeSteps {
         homePage.clickOnSearchTab();
     }
 
-    @And("close recent apps")
-    public void closeRecentApps() {
-        Hooks.clickOnCloseAllApps();
+
+    @Given("user opens the application")
+    public void user_opens_the_application() {
+        homePage.openApplication();
     }
 
-        @Given("user opens the application")
-        public void user_opens_the_application () {
-            homePage.openApplication();
-        }
 
-
-        @Then("verify user is on home page")
-        public void verifyUserIsOnHomePage () {
-            Assert.assertTrue(homePage.isHomePageDisplayed());
-        }
-
-        @When("user click on log in")
-        public void userClickOnLogIn () {
-            homePage.clickOnLogin();
-        }
-
-        @And("user click on continue with mail")
-        public void userClickOnContinueWithMail () {
-            homePage.clickOnContinueWithMail();
-        }
+    @Then("verify user is on home page")
+    public void verifyUserIsOnHomePage() {
+        Assert.assertTrue(homePage.isHomePageDisplayed());
     }
+
+    @When("user click on log in")
+    public void userClickOnLogIn() {
+        homePage.clickOnLogin();
+    }
+
+    @And("user click on continue with mail")
+    public void userClickOnContinueWithMail() {
+        homePage.clickOnContinueWithMail();
+    }
+}
