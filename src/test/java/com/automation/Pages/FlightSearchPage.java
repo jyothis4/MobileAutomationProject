@@ -5,15 +5,14 @@ import org.openqa.selenium.support.FindBy;
 
 public class FlightSearchPage extends BasePage {
 
-    @FindBy(id = "com.expedia.bookings:id/udsFormFieldEditText")
+    @FindBy(xpath = "//android.view.View[@content-desc='Leaving from Button']")
     WebElement flyingFromInput;
 
-    @FindBy(id = "com.expedia.bookings:id/udsFormFieldEditText")
+    @FindBy(xpath = "//android.view.View[@content-desc='Going to Button']")
     WebElement flyingToInput;
 
 
     public boolean isFlightSearchPageDisplayed() {
-
         return isPresent(flyingFromInput) && isPresent(flyingToInput);
     }
 
