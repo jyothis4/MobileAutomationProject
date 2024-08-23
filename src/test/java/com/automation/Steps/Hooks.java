@@ -11,7 +11,7 @@ public class Hooks {
     public void setUp() {
         ConfigReader.initConfig();
         DriverManager.createDriver();
-        System.out.println(System.getProperty("userdir"));
+
     }
 
     @After
