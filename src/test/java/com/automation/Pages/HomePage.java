@@ -34,8 +34,6 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//android.view.View[@content-desc='Search input']/android.view.View[1]/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[2]/android.view.View[2]/android.view.View[3]/android.view.View")
     WebElement destination;
 
-    @FindBy(xpath = "//android.widget.TextView[@text='Plan a last-minute road trip, beach escape, or long weekend somewhere close by.']")
-    WebElement endOfPage;
 
 
     public void openApplication() {
@@ -48,7 +46,7 @@ public class HomePage extends BasePage {
         if (isPresent(closeBtn)) {
             closeBtn.click();
         }
-        scrollTillElement(endOfPage);
+
     }
 
     public boolean isHomeScreenDisplayed() {
