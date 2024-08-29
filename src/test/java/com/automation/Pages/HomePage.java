@@ -7,6 +7,9 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "")
     WebElement homePageContent;
 
+    @FindBy(xpath = "//android.widget.Button[@text='Don’t allow']")
+    WebElement locationDoNotAllow;
+
     @FindBy(xpath = "//android.widget.TextView[@text='Log in']/parent::android.view.ViewGroup")
     WebElement loginButton;
 
@@ -36,20 +39,24 @@ public class HomePage extends BasePage {
 
 
     public void openApplication() {
-        if (isPresent(closeButton)) {
-            closeButton.click();
+        if (isPresent(locationDoNotAllow)){
+            locationDoNotAllow.click();
         }
+//        if (isPresent(closeButton)) {
+//            closeButton.click();
+//        }
         if (isPresent(doNotAcceptBtn)) {
             doNotAcceptBtn.click();
         }
-        if (isPresent(closeBtn)) {
-            closeBtn.click();
-        }
+//        if (isPresent(closeBtn)) {
+//            closeBtn.click();
+//        }
 
     }
 
     public boolean isHomeScreenDisplayed() {
-        return isPresent(flightsTab);
+        isPresent(flightsTab);
+        return flightsTab.isDisplayed();
     }
 
     public void clickOnSearchTab() {
