@@ -3,6 +3,7 @@ package com.automation.Pages;
 import com.automation.Utils.DriverManager;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Pause;
 import org.openqa.selenium.interactions.PointerInput;
@@ -18,11 +19,13 @@ import java.util.Collections;
 public class BasePage {
     AppiumDriver driver;
     WebDriverWait wait;
+    JavascriptExecutor js;
 
     public BasePage() {
         driver = DriverManager.getDriver();
         PageFactory.initElements(driver, this);
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        js = (JavascriptExecutor) driver;
     }
 
 
@@ -142,5 +145,8 @@ public class BasePage {
 
         driver.perform(Collections.singletonList(sequence));
 
+    }
+    public void javascriptSendKeys(WebElement element){
+        js.executeScript("document.getElementById('elementID').setAttribute('value', 'new value for element')");
     }
 }

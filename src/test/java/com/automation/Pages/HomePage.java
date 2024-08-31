@@ -7,17 +7,21 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "")
     WebElement homePageContent;
 
-    @FindBy(xpath = "//android.widget.Button[@text='Don’t allow']")
-    WebElement locationDoNotAllow;
+    @FindBy(xpath = "//android.widget.Button[@resource-id=\"com.android.permissioncontroller:id/permission_deny_button\"]")
+    WebElement doNotAllowNotification;
 
     @FindBy(xpath = "//android.widget.TextView[@text='Log in']/parent::android.view.ViewGroup")
     WebElement loginButton;
 
-    @FindBy(xpath = "//android.view.View[@resource-id='PreSignInDismissIcon']/android.widget.Button")
+    @FindBy(xpath = "//android.widget.Button[@resource-id=\"PreSignInDismissIcon\"]")
     WebElement closeButton;
 
     @FindBy(xpath = "//android.widget.Button[@resource-id='com.android.permissioncontroller:id/permission_deny_button']")
     WebElement doNotAcceptBtn;
+
+    @FindBy(xpath = "//android.view.ViewGroup[@resource-id=\"android:id/content\"]/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.view.View/android.view.View/android.widget.Button")
+    WebElement closeLocation;
+
 
     @FindBy(xpath = "//androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.Button")
     WebElement getStartedBtn;
@@ -28,7 +32,10 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//android.widget.TextView[@text='Let’s go']")
     WebElement letsGoBtn;
 
-    @FindBy(xpath = "//android.view.View[@content-desc='List of choices, 6 choices']/android.view.View/android.view.View[2]/android.widget.Button")
+    @FindBy(xpath = "//android.widget.ImageView[@content-desc=\"Expedia logo\"]")
+    WebElement expediaLogo;
+
+    @FindBy(xpath = "//android.widget.TextView[@text=\"Flights\"]")
     WebElement flightsTab;
 
     @FindBy(xpath = "//android.widget.TextView[@resource-id='com.airbnb.android:id/search_component_1']")
@@ -39,24 +46,24 @@ public class HomePage extends BasePage {
 
 
     public void openApplication() {
-        if (isPresent(locationDoNotAllow)){
-            locationDoNotAllow.click();
-        }
-//        if (isPresent(closeButton)) {
-//            closeButton.click();
+//        if (isPresent(locationDoNotAllow)){
+//            locationDoNotAllow.click();
 //        }
-        if (isPresent(doNotAcceptBtn)) {
-            doNotAcceptBtn.click();
+        if (isPresent(closeButton)) {
+            closeButton.click();
         }
-//        if (isPresent(closeBtn)) {
-//            closeBtn.click();
-//        }
+        if (isPresent(doNotAllowNotification)) {
+            doNotAllowNotification.click();
+        }
+        if (isPresent(closeLocation)) {
+            closeLocation.click();
+        }
 
     }
 
     public boolean isHomeScreenDisplayed() {
-        isPresent(flightsTab);
-        return flightsTab.isDisplayed();
+        isPresent(expediaLogo);
+        return expediaLogo.isDisplayed();
     }
 
     public void clickOnSearchTab() {
@@ -81,6 +88,7 @@ public class HomePage extends BasePage {
     }
 
     public void clickOnFlightTab() {
+        flightsTab.isDisplayed();
         flightsTab.click();
     }
 }
