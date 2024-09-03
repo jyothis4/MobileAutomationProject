@@ -45,15 +45,17 @@ public class FlightSearchPage extends BasePage {
 
     public void enterFromLocation(String fromLocation) {
         flyingFromInput.click();
-        flyingFromTextInput.isDisplayed();
         flyingFromTextInput.sendKeys(fromLocation);
-        fromInput.click();
+        String loc = String.format(flyingFromAndToLocator, fromLocation);
+        driver.findElement(By.xpath(loc)).click();
     }
 
     public void enterToLocation(String toLocation) {
         flyingToInput.click();
+        waitForElementToBeClickable(flyingToTextInput);
         flyingToTextInput.sendKeys(toLocation);
-        toInput.click();
+        String loc = String.format(flyingFromAndToLocator, toLocation);
+        driver.findElement(By.xpath(loc)).click();
     }
     public void clickOnDateField() {
         dateField.click();
