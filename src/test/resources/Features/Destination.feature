@@ -1,6 +1,6 @@
 Feature: Finding Destination
 
-  Scenario: Verify user can see the pool listing
+  Scenario: Verify user can see the destination listing
     Given user opens the application
     Then verify user is on home screen
     When user scrolls to explore stays in popular destination if needed
