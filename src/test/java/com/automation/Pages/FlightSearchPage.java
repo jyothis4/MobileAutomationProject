@@ -1,5 +1,6 @@
 package com.automation.Pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -20,8 +21,22 @@ public class FlightSearchPage extends BasePage {
     @FindBy(xpath = "//android.widget.TextView[@text=\"Chicago (ORD - O'Hare Intl.)\"]/ancestor::android.view.View/following-sibling::android.widget.Button")
     WebElement fromInput;
 
-    @FindBy(xpath = "//android.view.ViewGroup[@resource-id='android:id/content']/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Button")
+    @FindBy(xpath = "(//android.widget.TextView[@text=\"Florida, United States\"])[1]")
     WebElement toInput;
+
+    @FindBy(xpath = "//android.widget.TextView[@text='Search']")
+    WebElement searchBtn;
+
+    @FindBy(xpath = "//android.view.View[contains(@content-desc,'Dates Button')]")
+    WebElement dateField;
+
+    @FindBy(xpath = "//android.widget.TextView[@resource-id='buttonLabel']")
+    WebElement doneBtn;
+
+    String flyingFromAndToLocator = "//android.widget.TextView[contains(@text,'%s')]";
+
+    String dateSelection = "//android.view.View[contains(@content-desc,'%s')]/following-sibling::android.widget.Button";
+
 
 
     public boolean isFlightSearchPageDisplayed() {
@@ -39,5 +54,21 @@ public class FlightSearchPage extends BasePage {
         flyingToInput.click();
         flyingToTextInput.sendKeys(toLocation);
         toInput.click();
+    }
+    public void clickOnDateField() {
+        dateField.click();
+    }
+    public void clickOnSearchBtn() {
+        searchBtn.click();
+    }
+
+    public void clickOnDoneBtn() {
+        doneBtn.click();
+    }
+
+    public void selectDate(String fromDate) {
+        String loc = String.format(dateSelection, fromDate);
+//        clickOnElementIfPresent(driver.findElement(By.xpath(loc)));
+        driver.findElement(By.xpath(loc)).click();
     }
 }

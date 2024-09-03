@@ -1,6 +1,7 @@
 package com.automation.Steps;
 
 import com.automation.Pages.FlightSearchPage;
+import com.automation.Utils.ConfigReader;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
@@ -25,17 +26,17 @@ public class FlightSearchSteps {
     }
 
     @When("select date from {string} to {string}")
-    public void select_date_from_to(String string, String string2) {
-
+    public void select_date_from_to(String fromDate, String toDate) {
+        flightSearchPage.clickOnDateField();
+        flightSearchPage.selectDate(fromDate);
+        flightSearchPage.selectDate(toDate);
+        flightSearchPage.clickOnDoneBtn();
     }
 
     @When("click on search button")
     public void click_on_search_button() {
-
+        flightSearchPage.clickOnSearchBtn();
     }
 
-    @Then("verify flight listing page is displayed")
-    public void verify_flight_listing_page_is_displayed() {
 
-    }
 }
