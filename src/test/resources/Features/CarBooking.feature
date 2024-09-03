@@ -7,6 +7,6 @@ Feature: Car Booking
     Then user is on the car booking page
     When user enters "Alberta" into the Pick-up location field
     And user enters "Brooklyn" into the Drop-off location field
-    And user selects the date as "12 Aug 2024"
+    And user selects the date as "18 Sep 2024"
     When user selects time from dropDown
     Then verify listing page is displayed
