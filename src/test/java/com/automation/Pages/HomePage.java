@@ -73,19 +73,8 @@ public class HomePage extends BasePage {
 
     }
 
-    public boolean isHomePageDisplayed() {
-
-//        return homePageContent.isDisplayed();
-        return true;
-    }
-
-    public void clickOnLogin() {
-        loginButton.click();
-    }
 
 
-    public void clickOnContinueWithMail() {
-    }
 
     public void clickOnFlightTab() {
         flightsTab.isDisplayed();
