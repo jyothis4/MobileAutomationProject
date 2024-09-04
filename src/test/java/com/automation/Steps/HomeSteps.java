@@ -31,5 +31,8 @@ public class HomeSteps {
     }
 
 
-
+    @When("user click on packages tab")
+    public void userClickOnPackagesTab() {
+        homePage.clickOnPackagesTab();
+    }
 }

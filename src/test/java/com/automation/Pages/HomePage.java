@@ -44,6 +44,9 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//android.view.View[@content-desc='Search input']/android.view.View[1]/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[2]/android.view.View[2]/android.view.View[3]/android.view.View")
     WebElement destination;
 
+    @FindBy(xpath = "")
+    WebElement packagesTab;
+
 
     public void openApplication() {
 //        if (isPresent(locationDoNotAllow)){
@@ -79,5 +82,9 @@ public class HomePage extends BasePage {
     public void clickOnFlightTab() {
         flightsTab.isDisplayed();
         flightsTab.click();
+    }
+
+    public void clickOnPackagesTab() {
+        packagesTab.click();
     }
 }
