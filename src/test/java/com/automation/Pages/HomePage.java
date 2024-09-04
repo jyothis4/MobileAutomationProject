@@ -44,7 +44,7 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//android.view.View[@content-desc='Search input']/android.view.View[1]/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[2]/android.view.View[2]/android.view.View[3]/android.view.View")
     WebElement destination;
 
-    @FindBy(xpath = "")
+    @FindBy(xpath = "//android.view.View[@content-desc=\"List of choices, 6 choices\"]/android.view.View/android.view.View[4]/android.view.View/android.view.View")
     WebElement packagesTab;
 
 
