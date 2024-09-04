@@ -3,7 +3,7 @@ Feature: Finding Sunny Getaways
   Scenario: Verify offer price of Sunny Getaways
     Given user opens the application
     Then verify user is on home screen
-    When user scrolls to go Sunny Getaways if needed
+    When user scrolls to Sunny Getaways if needed
     And user slides to San Juan if needed
     When user clicks on Drive into San Juan
     And user scrolls down to change month option

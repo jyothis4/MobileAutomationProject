@@ -61,4 +61,9 @@ public class HomeSteps {
     public void userClickOnThingsToDo() {
         homePage.clickOnThingsToDo();
     }
+
+    @When("user clicks on discover")
+    public void userClicksOnDiscover() {
+        homePage.clickOnDiscover();
+    }
 }
