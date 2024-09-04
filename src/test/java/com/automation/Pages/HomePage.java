@@ -47,6 +47,21 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//android.view.View[@content-desc=\"List of choices, 6 choices\"]/android.view.View/android.view.View[4]/android.view.View/android.view.View")
     WebElement packagesTab;
 
+    @FindBy(xpath = "//android.widget.HorizontalScrollView[@resource-id='com.expedia.bookings:id/bottom_tab_layout']/android.widget.LinearLayout/android.widget.LinearLayout[5]/android.widget.LinearLayout/android.widget.LinearLayout")
+    WebElement accountIcon;
+
+    @FindBy(xpath = "//androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.Button")
+    WebElement chatIcon;
+
+    @FindBy(xpath = "//android.view.View[@content-desc='List of choices, 6 choices']/android.view.View/android.view.View[6]/android.view.View/android.widget.Button")
+    WebElement cruisesTab;
+
+    @FindBy(xpath = "//android.view.View[@content-desc='List of choices, 6 choices']/android.view.View/android.view.View[3]/android.view.View/android.widget.Button")
+    WebElement carsTab;
+
+    @FindBy(xpath = "//android.view.View[@content-desc='List of choices, 6 choices']/android.view.View/android.view.View[5]/android.view.View/android.widget.Button")
+    WebElement thingsToDoTab;
+
 
     public void openApplication() {
 //        if (isPresent(locationDoNotAllow)){
@@ -77,8 +92,6 @@ public class HomePage extends BasePage {
     }
 
 
-
-
     public void clickOnFlightTab() {
         flightsTab.isDisplayed();
         flightsTab.click();
@@ -86,5 +99,25 @@ public class HomePage extends BasePage {
 
     public void clickOnPackagesTab() {
         packagesTab.click();
+    }
+
+    public void clickOnAccount() {
+        accountIcon.click();
+    }
+
+    public void clickOnChat() {
+        chatIcon.click();
+    }
+
+    public void clickOnCruises() {
+        cruisesTab.click();
+    }
+
+    public void clickOnCars() {
+        carsTab.click();
+    }
+
+    public void clickOnThingsToDo() {
+        thingsToDoTab.click();
     }
 }

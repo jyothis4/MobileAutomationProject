@@ -3,7 +3,7 @@ Feature: Things to do
   Scenario: verify the details in things to do
     Given user opens application
     Then verify user is on home screen
-    When user click on search icon
+    When user click on things to do
     Then verify user is on search page
     When user clicks on things to do
     Then user gives destination

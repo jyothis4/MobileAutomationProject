@@ -37,4 +37,28 @@ public class HomeSteps {
     }
 
 
+    @When("user clicks on account")
+    public void userClicksOnAccount() {
+        homePage.clickOnAccount();
+    }
+
+    @When("user clicks on chat option")
+    public void userClicksOnChatOption() {
+        homePage.clickOnChat();
+    }
+
+    @When("user click on cruises tab")
+    public void userClickOnCruisesTab() {
+        homePage.clickOnCruises();
+    }
+
+    @When("user clicks on the car tab")
+    public void userClicksOnTheCarTab() {
+        homePage.clickOnCars();
+    }
+
+    @When("user click on things to do")
+    public void userClickOnThingsToDo() {
+        homePage.clickOnThingsToDo();
+    }
 }
