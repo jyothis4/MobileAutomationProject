@@ -5,8 +5,7 @@ Feature: Things to do
     Then verify user is on home screen
     When user click on things to do
     Then verify user is on search page
-    When user clicks on things to do
-    Then user gives destination
+    And user gives destination
     When user gives the dates
     And user clicks on the card
     Then verify user entered details with details on the card
