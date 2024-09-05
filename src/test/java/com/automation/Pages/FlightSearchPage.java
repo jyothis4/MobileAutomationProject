@@ -38,7 +38,6 @@ public class FlightSearchPage extends BasePage {
     String dateSelection = "//android.view.View[contains(@content-desc,'%s')]/following-sibling::android.widget.Button";
 
 
-
     public boolean isFlightSearchPageDisplayed() {
         return isPresent(flyingFromInput) && isPresent(flyingToInput);
     }
@@ -57,9 +56,11 @@ public class FlightSearchPage extends BasePage {
         String loc = String.format(flyingFromAndToLocator, toLocation);
         driver.findElement(By.xpath(loc)).click();
     }
+
     public void clickOnDateField() {
         dateField.click();
     }
+
     public void clickOnSearchBtn() {
         searchBtn.click();
     }

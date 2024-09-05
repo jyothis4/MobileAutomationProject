@@ -7,7 +7,7 @@ import io.cucumber.java.en.Then;
 import static org.junit.Assert.assertTrue;
 
 public class PackagesSteps {
-    PackagesPage packagesPage=new PackagesPage();
+    PackagesPage packagesPage = new PackagesPage();
 
     @Then("verify user is on packages search page")
     public void verifyUserIsOnPackagesSearchPage() {

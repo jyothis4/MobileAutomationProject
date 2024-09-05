@@ -146,7 +146,8 @@ public class BasePage {
         driver.perform(Collections.singletonList(sequence));
 
     }
-    public void javascriptSendKeys(WebElement element){
+
+    public void javascriptSendKeys(WebElement element) {
         js.executeScript("document.getElementById('elementID').setAttribute('value', 'new value for element')");
     }
 }
