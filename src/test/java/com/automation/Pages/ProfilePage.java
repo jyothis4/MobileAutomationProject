@@ -10,4 +10,8 @@ public class ProfilePage extends BasePage{
     public WebElement verifyOnProfilePage() {
         return settings;
     }
+
+    public void clickOnSettings() {
+        settings.click();
+    }
 }
