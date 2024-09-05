@@ -18,7 +18,7 @@ public class HomeSteps {
     @Then("verify user is on home screen")
     public void verify_user_is_on_home_screen() {
         Assert.assertTrue(homePage.isHomeScreenDisplayed());
-        ReportManager.takeScreenShot();
+        ReportManager.attachScreenShot();
     }
 
     @When("user click on flight tab")
