@@ -11,12 +11,12 @@ public class DriverManager {
 
     public static void createDriver() {
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("platformName", ConfigReader.getConfigValue("platform.name"));
-        capabilities.setCapability("deviceName", ConfigReader.getConfigValue("device.name"));
-        capabilities.setCapability("automationName", ConfigReader.getConfigValue("automation.name"));
-        capabilities.setCapability("app", System.getProperty("user.dir") + "\\" + ConfigReader.getConfigValue("app.path"));
-        capabilities.setCapability("appActivity", ConfigReader.getConfigValue("app.activity"));
-        capabilities.setCapability("appPackage", ConfigReader.getConfigValue("app.package"));
+        capabilities.setCapability("platformName", ConfigReader.getValue("platform.name"));
+        capabilities.setCapability("deviceName", ConfigReader.getValue("device.name"));
+        capabilities.setCapability("automationName", ConfigReader.getValue("automation.name"));
+        capabilities.setCapability("app", System.getProperty("user.dir") + "\\" + ConfigReader.getValue("app.path"));
+        capabilities.setCapability("appActivity", ConfigReader.getValue("app.activity"));
+        capabilities.setCapability("appPackage", ConfigReader.getValue("app.package"));
         driver = new AndroidDriver(capabilities);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
     }

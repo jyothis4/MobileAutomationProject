@@ -7,7 +7,7 @@ import org.openqa.selenium.TakesScreenshot;
 public class ReportManager {
     public static Scenario scenario;
 
-    public static void initReport(Scenario scenario) {
+    public static void initScenario(Scenario scenario) {
         ReportManager.scenario = scenario;
     }
 
