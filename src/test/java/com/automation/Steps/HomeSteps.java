@@ -1,6 +1,7 @@
 package com.automation.Steps;
 
 import com.automation.Pages.HomePage;
+import com.automation.Utils.ReportManager;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -17,6 +18,7 @@ public class HomeSteps {
     @Then("verify user is on home screen")
     public void verify_user_is_on_home_screen() {
         Assert.assertTrue(homePage.isHomeScreenDisplayed());
+        ReportManager.attachScreenShot();
     }
 
     @When("user click on flight tab")

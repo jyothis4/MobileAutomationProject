@@ -1,7 +1,7 @@
 package com.automation.Steps;
 
 import com.automation.Pages.FlightSearchPage;
-import com.automation.Utils.ConfigReader;
+import com.automation.Utils.ReportManager;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
@@ -13,6 +13,7 @@ public class FlightSearchSteps {
     @Then("verify user is on flight search page")
     public void verify_user_is_on_flight_search_page() {
         Assert.assertTrue(flightSearchPage.isFlightSearchPageDisplayed());
+        ReportManager.attachScreenShot();
     }
 
     @When("user enters {string} into flying from")

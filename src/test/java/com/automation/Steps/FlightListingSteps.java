@@ -1,6 +1,7 @@
 package com.automation.Steps;
 
 import com.automation.Pages.FlightListingPage;
+import com.automation.Utils.ReportManager;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 
@@ -11,5 +12,6 @@ public class FlightListingSteps {
     @Then("verify flight listing page is displayed")
     public void verify_flight_listing_page_is_displayed() {
         Assert.assertTrue(flightListingPage.isFlightListingPageDisplayed());
+        ReportManager.attachScreenShot();
     }
 }
