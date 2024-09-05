@@ -65,6 +65,9 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//android.widget.HorizontalScrollView[@resource-id='com.expedia.bookings:id/bottom_tab_layout']/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.LinearLayout/android.widget.LinearLayout")
     WebElement discoverIcon;
 
+    @FindBy(xpath = "//android.view.View[@content-desc='List of choices, 6 choices']/android.view.View/android.view.View[1]/android.widget.Button")
+    WebElement staysTab;
+
 
     public void openApplication() {
 //        if (isPresent(locationDoNotAllow)){
@@ -126,5 +129,9 @@ public class HomePage extends BasePage {
 
     public void clickOnDiscover() {
         discoverIcon.click();
+    }
+
+    public void clickOnStays() {
+        staysTab.click();
     }
 }

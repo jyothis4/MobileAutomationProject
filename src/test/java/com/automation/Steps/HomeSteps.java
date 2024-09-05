@@ -66,4 +66,9 @@ public class HomeSteps {
     public void userClicksOnDiscover() {
         homePage.clickOnDiscover();
     }
+
+    @When("user clicks on the stays tab")
+    public void userClicksOnTheStaysTab() {
+        homePage.clickOnStays();
+    }
 }
