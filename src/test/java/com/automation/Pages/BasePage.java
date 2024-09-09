@@ -94,6 +94,12 @@ public class BasePage {
         int height = dimension.getHeight();
         scrollOrSwipe(width / 2, height / 2, width / 2, 0);
     }
+    public void halfScroll() {
+        Dimension dimension = driver.manage().window().getSize();
+        int width = dimension.getWidth();
+        int height = dimension.getHeight();
+        scrollOrSwipe(width / 2, height / 2, width / 2, height/4);
+    }
 
     public void swipe() {
         Dimension dimension = driver.manage().window().getSize();
@@ -117,7 +123,7 @@ public class BasePage {
 
     public boolean isPresents(WebElement element) {
         try {
-            resetImplicitWait(10);
+            resetImplicitWait(0);
             wait.until(ExpectedConditions.visibilityOf(element));
             return true;
         } catch (Exception e) {

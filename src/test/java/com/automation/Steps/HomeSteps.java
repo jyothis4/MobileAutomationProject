@@ -1,7 +1,9 @@
 package com.automation.Steps;
 
 import com.automation.Pages.HomePage;
+import com.automation.Utils.ConfigReader;
 import com.automation.Utils.ReportManager;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -72,5 +74,30 @@ public class HomeSteps {
     @When("user clicks on the stays tab")
     public void userClicksOnTheStaysTab() {
         homePage.clickOnStays();
+    }
+
+    @When("user reopens website")
+    public void userReopensWebsite() {
+        homePage.reopenWebsite();
+    }
+
+    @When("user scrolls to go Last-minute weekend deals")
+    public void userScrollsToGoLastMinuteWeekendDeals() {
+        homePage.goToLastMinuteWeekendDeals();
+    }
+
+    @And("user slides to the deal with offer with {string}")
+    public void userSlidesToTheDealWithOfferWith(String offerPrice) {
+        homePage.scrollToLastMinuteOfferPrice(ConfigReader.getValue(offerPrice));
+    }
+
+    @Then("verify the offer tag with offer price and actual price")
+    public void verifyTheOfferTagWithOfferPriceAndActualPrice() {
+        Assert.assertTrue(homePage.verifyLastMinutePrice());
+    }
+
+    @And("user selects the offer card")
+    public void userSelectsTheOfferCard() {
+        homePage.selectOfferCard();
     }
 }

@@ -1,15 +1,24 @@
 package com.automation.Pages;
 
+import com.automation.Utils.ConfigReader;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 public class HomePage extends BasePage {
+
+    @FindBy(xpath = "//android.widget.Button")
+    WebElement clickGetStarted;
 
     @FindBy(xpath = "//android.widget.Button[@resource-id=\"com.android.permissioncontroller:id/permission_deny_button\"]")
     WebElement doNotAllowNotification;
 
     @FindBy(xpath = "//android.widget.Button[@resource-id=\"PreSignInDismissIcon\"]")
     WebElement closeButton;
+
+    @FindBy(xpath = "//android.view.View[@content-desc=\"Close\"]/following-sibling::android.widget.Button")
+    WebElement closeSignIn;
 
     @FindBy(xpath = "//android.view.ViewGroup[@resource-id=\"android:id/content\"]/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.view.View/android.view.View/android.widget.Button")
     WebElement closeLocation;
@@ -44,18 +53,33 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//android.view.View[@content-desc='List of choices, 6 choices']/android.view.View/android.view.View[1]/android.widget.Button")
     WebElement staysTab;
 
+    @FindBy(xpath = "//android.widget.TextView[@text=\"Last-minute weekend deals\"]")
+    WebElement lastMinuteWeekendDeals;
+
+    @FindBy(xpath = "//android.widget.TextView[@text=\"Last-minute weekend deals\"]/parent::android.view.View/following-sibling::android.view.View//android.widget.TextView[contains(@text,'% off')]")
+    WebElement lastMinuteWeekendDealsOfferTag;
+
+    @FindBy(xpath = "//android.widget.TextView[@text=\"Last-minute weekend deals\"]/parent::android.view.View/following-sibling::android.view.View//android.view.View[contains(@content-desc,'Page')]")
+    WebElement lastMinuteWeekendPage;
+
+    @FindBy(xpath = "//android.widget.TextView[contains(@content-desc,'Price is')]")
+    WebElement lastMinuteCurrentPrice;
+
+    @FindBy(xpath = "//android.widget.TextView[contains(@content-desc,'Price was')]")
+    WebElement lastMinutePriceBefore;
+
 
     public void openApplication() {
 
-        if (isPresent(closeButton)) {
-            closeButton.click();
-        }
-        if (isPresent(doNotAllowNotification)) {
-            doNotAllowNotification.click();
-        }
-        if (isPresent(closeLocation)) {
-            closeLocation.click();
-        }
+//        if (isPresent(closeButton)) {
+//            closeButton.click();
+//        }
+//        if (isPresent(doNotAllowNotification)) {
+//            doNotAllowNotification.click();
+//        }
+//        if (isPresent(closeLocation)) {
+//            closeLocation.click();
+//        }
 
     }
 
@@ -100,5 +124,51 @@ public class HomePage extends BasePage {
 
     public void clickOnStays() {
         staysTab.click();
+    }
+
+    public void reopenWebsite() {
+        if (isPresent(clickGetStarted)) {
+            clickGetStarted.click();
+        }
+        if (isPresent(closeSignIn)) {
+            closeSignIn.click();
+        }
+        if (isPresent(doNotAllowNotification)) {
+            doNotAllowNotification.click();
+        }
+        if (isPresent(closeLocation)) {
+            closeLocation.click();
+        }
+    }
+
+    public void goToLastMinuteWeekendDeals() {
+        scrollTillElement(lastMinuteWeekendDeals);
+        int startX = lastMinuteWeekendDeals.getLocation().getX();
+        int startY = lastMinuteWeekendDeals.getLocation().getY();
+        scrollOrSwipe(startX, startY, startX, 10);
+    }
+
+    public void scrollToLastMinuteOfferPrice(String offerPrice) {
+        String tagOfferPrice = lastMinuteWeekendDealsOfferTag.getText().split("%")[0];
+        if (Integer.parseInt(tagOfferPrice) < Integer.parseInt(offerPrice)) {
+            int startX=lastMinuteWeekendPage.getLocation().getX();
+            int startY=lastMinuteWeekendPage.getLocation().getY();
+            int width=lastMinuteWeekendPage.getSize().getWidth();
+            scrollOrSwipe(startX+width,startY,0,startY);
+        }
+
+    }
+
+    public boolean verifyLastMinutePrice() {
+        int beforePrice=Integer.parseInt(lastMinutePriceBefore.getText().split("₹")[0]);
+        int offer=(Integer.parseInt(lastMinuteWeekendDealsOfferTag.getText().split("%")[0]))/100;
+        int afterPrice=Integer.parseInt(lastMinuteCurrentPrice.getText().split("₹")[0]);
+        ConfigReader.setValue("limited.offer.last.price",String.valueOf(afterPrice));
+        return beforePrice*afterPrice==afterPrice;
+
+    }
+
+    public void selectOfferCard() {
+        lastMinuteWeekendPage.click();
     }
 }

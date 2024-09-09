@@ -42,4 +42,24 @@ public class ProfileSteps {
         ConfigReader.getValue(theme);
         profilePage.clickDarkTheme();
     }
+
+    @And("user clicks on change region")
+    public void userClicksOnChangeRegion() {
+        profilePage.clickRegion();
+    }
+
+    @And("user select {string}")
+    public void userSelect(String region) {
+        profilePage.selectRegion(ConfigReader.getValue(region));
+    }
+
+    @Then("user click on ok and confirms to clear the data")
+    public void userClickOnOkAndConfirmsToClearTheData() {
+        profilePage.clickOkClearData();
+    }
+
+    @Then("verify user is having the destination selected")
+    public void verifyUserIsHavingTheDestinationSelected() {
+        Assert.assertTrue(profilePage.verifyRegionSelected());
+    }
 }
