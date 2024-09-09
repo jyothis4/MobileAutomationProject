@@ -71,15 +71,15 @@ public class HomePage extends BasePage {
 
     public void openApplication() {
 
-//        if (isPresent(closeButton)) {
-//            closeButton.click();
-//        }
-//        if (isPresent(doNotAllowNotification)) {
-//            doNotAllowNotification.click();
-//        }
-//        if (isPresent(closeLocation)) {
-//            closeLocation.click();
-//        }
+        if (isPresent(closeButton)) {
+            closeButton.click();
+        }
+        if (isPresent(doNotAllowNotification)) {
+            doNotAllowNotification.click();
+        }
+        if (isPresent(closeLocation)) {
+            closeLocation.click();
+        }
 
     }
 
@@ -150,22 +150,23 @@ public class HomePage extends BasePage {
 
     public void scrollToLastMinuteOfferPrice(String offerPrice) {
         String tagOfferPrice = lastMinuteWeekendDealsOfferTag.getText().split("%")[0];
-        if (Integer.parseInt(tagOfferPrice) < Integer.parseInt(offerPrice)) {
+        System.out.println(tagOfferPrice);
+        while (Integer.parseInt(tagOfferPrice) < Integer.parseInt(offerPrice)) {
             int startX=lastMinuteWeekendPage.getLocation().getX();
             int startY=lastMinuteWeekendPage.getLocation().getY();
             int width=lastMinuteWeekendPage.getSize().getWidth();
             scrollOrSwipe(startX+width,startY,0,startY);
+            tagOfferPrice = lastMinuteWeekendDealsOfferTag.getText().split("%")[0];
         }
 
     }
 
     public boolean verifyLastMinutePrice() {
-        int beforePrice=Integer.parseInt(lastMinutePriceBefore.getText().split("₹")[0]);
-        int offer=(Integer.parseInt(lastMinuteWeekendDealsOfferTag.getText().split("%")[0]))/100;
-        int afterPrice=Integer.parseInt(lastMinuteCurrentPrice.getText().split("₹")[0]);
+        int beforePrice=Integer.parseInt(lastMinutePriceBefore.getText().substring(1));
+        Double offer=(Double.parseDouble(lastMinuteWeekendDealsOfferTag.getText().split("%")[0]))/100.0;
+        int afterPrice=Integer.parseInt(lastMinuteCurrentPrice.getText().substring(1));
         ConfigReader.setValue("limited.offer.last.price",String.valueOf(afterPrice));
-        return beforePrice*afterPrice==afterPrice;
-
+        return beforePrice-(beforePrice*offer)>=afterPrice;
     }
 
     public void selectOfferCard() {
